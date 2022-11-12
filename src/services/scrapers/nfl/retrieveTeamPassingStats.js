@@ -9,12 +9,10 @@ async function scrapeTeamPassingStats() {
     const page = await browser.newPage();
     await page.goto(nflUrl);
 
-    // get passing headers 
     const passingStatsHeaders = await page.$$eval('th', columns => {
         return Array.from(columns, column => column.innerText);
     });
 
-    // get passing stats 
     const passingStats = await page.$$eval('tr', rows => {
         return Array.from(rows, row => {
             const columns = row.querySelectorAll('td');
