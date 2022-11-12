@@ -1,4 +1,3 @@
-const fs = require('fs');
 const puppeteer = require('puppeteer');
 const { writeToFile } = require('../../../utils/writeToFile');
 
