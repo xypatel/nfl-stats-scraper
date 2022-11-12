@@ -1,5 +1,6 @@
 const fs = require('fs');
 const puppeteer = require('puppeteer');
+const { writeToFile } = require('../../../utils/writeToFile');
 
 async function scrapeTeamPassingStats() {
     const nflUrl = 'https://www.nfl.com/stats/team-stats/offense/passing/2022/reg/all';
@@ -24,14 +25,8 @@ async function scrapeTeamPassingStats() {
     passingStats[0] = passingStatsHeaders;
     console.log(passingStats);
 
-    //Save data to JSON file 
     const passingStatsNewFileName = 'src/data/passingStats' + date.toISOString() + '.json';
-    try {
-        fs.writeFileSync(passingStatsNewFileName, JSON.stringify(passingStats));
-        console.log('File Saved!');
-    } catch (error) {
-        console.log(error);
-    }
+    writeToFile(passingStatsNewFileName, JSON.stringify(passingStats));
 }
 
 module.exports = { scrapeTeamPassingStats };
