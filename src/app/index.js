@@ -25,7 +25,7 @@ async function run() {
       console.log(passingStats);
 
       //Save data to JSON fike 
-      fs.writeFileSync('data/passingStats' + date.toISOString() + '.json', JSON.stringify(passingStats), (err) => {
+      fs.writeFileSync('src/data/passingStats' + date.toISOString() + '.json', JSON.stringify(passingStats), (err) => {
         if (err) { throw err; } else {
             console.log("File Saved");
         }
