@@ -22,8 +22,9 @@ async function scrapeTeamPassingStats() {
     passingStats[0] = passingStatsHeaders;
     console.log(passingStats);
 
-    const passingStatsNewFileName = 'src/data/passingStats' + date.toISOString() + '.json';
+    const passingStatsNewFileName = 'src/data/team-passing-stats/' + date.toISOString().substring(0, 16) + '.json';
     writeToFile(passingStatsNewFileName, JSON.stringify(passingStats));
+    browser.close();
 }
 
 module.exports = { scrapeTeamPassingStats };
