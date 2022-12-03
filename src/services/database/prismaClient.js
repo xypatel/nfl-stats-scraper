@@ -3,7 +3,9 @@ const { scrapeTeamPassingStats } = require('../scrapers/nfl/retrieveTeamPassingS
 
 const prisma = new prismaClient.PrismaClient();
 async function getPassingStats() {
-    const allPassingStats = await prisma.passing_stats.findMany();
+    const allPassingStats = await prisma.passing_stats.findMany({
+        where: { year: 1996 },
+      });
     console.log("Prisma find many from Postgres DB");
     console.log(allPassingStats);
 }
@@ -39,7 +41,7 @@ async function putPassingStats() {
 }
 
 async function runQuery() {
-    putPassingStats()
+    getPassingStats()
         .then(async () => {
             await prisma.$disconnect()
         })
