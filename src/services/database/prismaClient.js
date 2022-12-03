@@ -57,7 +57,7 @@ async function putPassingStats(){
 }
 
 async function runQuery() {
-    putPassingStats()
+    getPassingStats()
     .then(async () => {
         await prisma.$disconnect()
     })
