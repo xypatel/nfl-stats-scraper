@@ -3,7 +3,6 @@ const { writeToFile } = require('../../../utils/writeToFile');
 
 async function scrapeTeamPassingStats() {
     const nflUrl = 'https://www.nfl.com/stats/team-stats/offense/passing/2022/reg/all';
-    const date = new Date();
     const browser = await puppeteer.launch({});
     const page = await browser.newPage();
     await page.goto(nflUrl);
@@ -22,6 +21,7 @@ async function scrapeTeamPassingStats() {
     passingStats[0] = passingStatsHeaders;
     console.log(passingStats);
     
+    // const date = new Date();
     // const passingStatsNewFileName = 'src/data/team-passing-stats/' + date.toISOString().substring(0, 16) + '.json';
     // writeToFile(passingStatsNewFileName, JSON.stringify(passingStats));
     browser.close();
