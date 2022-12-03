@@ -13,19 +13,19 @@ model passingStats {
   Team        String    @db.VarChar(25)
   Att         Decimal   @db.Decimal
   Cmp         Decimal   @db.Decimal
-  Cmp_perc    Decimal   @db.Decimal
-  Yds_per_Att Decimal   @db.Decimal
-  Pass_Yds    Decimal   @db.Decimal
   TD          Decimal   @db.Decimal
   INT         Decimal   @db.Decimal
   Rate        Decimal   @db.Decimal
+  Lng         String    @db.VarChar
+  Sck         Decimal   @db.Decimal
+  SckY        Decimal   @db.Decimal
+  Cmp_perc    Decimal   @db.Decimal
+  Pass_Yds    Decimal   @db.Decimal
+  Yds_per_Att Decimal   @db.Decimal
   first       Decimal   @db.Decimal
   first_perc  Decimal   @db.Decimal
   over_20     Decimal   @db.Decimal
   over_40     Decimal   @db.Decimal
-  Lng         Decimal   @db.Decimal
-  Sck         Decimal   @db.Decimal
-  SckY        Decimal   @db.Decimal
 }
 
 model test {
