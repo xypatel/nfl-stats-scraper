@@ -1,7 +1,7 @@
 const puppeteer = require('puppeteer');
 
-async function scrapeTeamPassingStats() {
-    const nflUrl = 'https://www.nfl.com/stats/team-stats/offense/passing/2022/reg/all';
+async function scrapeTeamPassingStats(year) {
+    const nflUrl = 'https://www.nfl.com/stats/team-stats/offense/passing/' + year + '/reg/all';
     const browser = await puppeteer.launch({});
     const page = await browser.newPage();
     await page.goto(nflUrl);

@@ -7,8 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model passingStats {
-  id          Int       @id @default(autoincrement())
+model test {
+  id Int @id @default(autoincrement())
+}
+
+model passing_stats {
+  id          Int       @id(map: "passingStats_pkey") @default(autoincrement())
   date        DateTime? @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'UTC'::text)")) @db.Timestamp(6)
   Team        String    @db.VarChar(25)
   Att         Decimal   @db.Decimal
@@ -26,8 +30,5 @@ model passingStats {
   first_perc  Decimal   @db.Decimal
   over_20     Decimal   @db.Decimal
   over_40     Decimal   @db.Decimal
-}
-
-model test {
-  id Int @id @default(autoincrement())
+  year        Int?
 }
