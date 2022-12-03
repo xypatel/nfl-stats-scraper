@@ -1,5 +1,4 @@
 const puppeteer = require('puppeteer');
-const { writeToFile } = require('../../../utils/writeToFile');
 
 async function scrapeTeamPassingStats() {
     const nflUrl = 'https://www.nfl.com/stats/team-stats/offense/passing/2022/reg/all';
@@ -21,9 +20,6 @@ async function scrapeTeamPassingStats() {
     passingStats[0] = passingStatsHeaders;
     console.log(passingStats);
     
-    // const date = new Date();
-    // const passingStatsNewFileName = 'src/data/team-passing-stats/' + date.toISOString().substring(0, 16) + '.json';
-    // writeToFile(passingStatsNewFileName, JSON.stringify(passingStats));
     browser.close();
     return passingStats;
 }
