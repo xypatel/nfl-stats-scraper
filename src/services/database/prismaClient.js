@@ -9,6 +9,7 @@ async function getPassingStats() {
 }
 
 async function putPassingStats() {
+    // TODO: Resolve timeout issue (timeout after ~29 loops)
     for (let year = 1997; year <= 2022; year++) {
         passingStats = await scrapeTeamPassingStats(year);
         for (let i = 1; i < passingStats.length; i++) {
