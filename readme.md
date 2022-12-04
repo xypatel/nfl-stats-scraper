@@ -20,3 +20,5 @@ To update table after changes are made to prisma schema
 
 Visualize Schema
 - `npx prisma studio`
+## Code Analysis
+[SonarCloud](https://sonarcloud.io/project/overview?id=xypatel_nfl-stats-scraper)
