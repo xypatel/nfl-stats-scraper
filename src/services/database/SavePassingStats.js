@@ -38,7 +38,7 @@ async function putAllYearsPassingStats() {
     }
 }
 
-async function saveAllPassingStatsFrom1970() {
+async function saveAllPassingStatsFrom1970ToCurrentYear() {
     putAllYearsPassingStats()
     .then(async () => {
         await prisma.$disconnect()
@@ -50,4 +50,4 @@ async function saveAllPassingStatsFrom1970() {
     })
 }
 
-module.exports = { saveAllPassingStatsFrom1970 };
+module.exports = { saveAllPassingStatsFrom1970ToCurrentYear };
