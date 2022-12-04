@@ -15,5 +15,8 @@ To update prisma schema after changes are made to table
 1. `npx prisma db pull`
 2. `npx prism generate`
 
+To update table after changes are made to prisma schema 
+`npx prisma migrate dev --name init`
+
 Visualize Schema
 `npx prisma studio`
