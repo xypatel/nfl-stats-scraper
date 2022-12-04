@@ -25,8 +25,8 @@ async function putPassingStats() {
                     touchdowns: passingStats[i][6],
                     interceptions: passingStats[i][7],
                     pass_rating: passingStats[i][8],
-                    first: passingStats[i][9],
-                    first_perc: passingStats[i][10],
+                    pass_first_downs: passingStats[i][9],
+                    pass_first_down_percentage: passingStats[i][10],
                     passes_over_20_yards: passingStats[i][11],
                     passes_over_40_yards: passingStats[i][12],
                     longest_pass: passingStats[i][13],
@@ -35,12 +35,13 @@ async function putPassingStats() {
                     year: year
                 }
             })
+            console.log(year + ' ' + passingStats[i][0] + ' Passing Stats Saved to DB');
         }
     }
 }
 
 async function runQuery() {
-    getPassingStats()
+    putPassingStats()
         .then(async () => {
             await prisma.$disconnect()
         })
