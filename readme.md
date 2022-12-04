@@ -6,6 +6,7 @@
 - [Puppeteer](https://pptr.dev/)
 - [Prisma](https://www.prisma.io/)
 ## Docker
+1. `cd docker`
 - `docker compose -f docker-compose-pg-only.yml up --detach`
 - `docker compose -f docker-compose-pg-only.yml down`
 
