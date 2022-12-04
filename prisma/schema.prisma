@@ -1,0 +1,51 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model test {
+  id Int @id @default(autoincrement())
+}
+
+model passing_stats {
+  id                         Int       @id @default(autoincrement())
+  date_scraped               DateTime? @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'UTC'::text)")) @db.Timestamp(6)
+  team                       String    @db.VarChar(25)
+  attempts                   Decimal   @db.Decimal
+  completions                Decimal   @db.Decimal
+  touchdowns                 Decimal   @db.Decimal
+  interceptions              Decimal   @db.Decimal
+  pass_rating                Decimal   @db.Decimal
+  longest_pass               String    @db.VarChar
+  sacks                      Decimal   @db.Decimal
+  sack_yards_lost            Decimal   @db.Decimal
+  completion_percentage      Decimal   @db.Decimal
+  pass_yards                 Decimal   @db.Decimal
+  pass_yards_per_attempt     Decimal   @db.Decimal
+  passes_over_20_yards       Decimal   @db.Decimal
+  passes_over_40_yards       Decimal   @db.Decimal
+  year                       Int?
+  pass_first_down_percentage Decimal   @db.Decimal
+  pass_first_downs           Decimal   @db.Decimal
+}
+
+model rushing_stats {
+  id                         Int       @id @default(autoincrement())
+  date_scraped               DateTime? @default(dbgenerated("(CURRENT_TIMESTAMP AT TIME ZONE 'UTC'::text)")) @db.Timestamp(6)
+  team                       String    @db.VarChar(25)
+  attempts                   Decimal   @db.Decimal
+  rush_yards                 Decimal   @db.Decimal
+  rush_yards_per_attempt     Decimal   @db.Decimal
+  touchdowns                 Decimal   @db.Decimal
+  rush_over_20_yards         Decimal   @db.Decimal
+  rush_over_40_yards         Decimal   @db.Decimal
+  longest_rush               String    @db.VarChar
+  rush_first_downs           Decimal   @db.Decimal
+  rush_first_down_percentage Decimal   @db.Decimal
+  rush_fumbles               Decimal   @db.Decimal
+  year                       Int?
+}
