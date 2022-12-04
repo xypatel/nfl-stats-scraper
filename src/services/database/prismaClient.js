@@ -16,22 +16,22 @@ async function putPassingStats() {
         for (let i = 1; i < passingStats.length; i++) {
             await prisma.passing_stats.create({
                 data: {
-                    Team: passingStats[i][0],
-                    Att: passingStats[i][1],
-                    Cmp: passingStats[i][2],
-                    Cmp_perc: passingStats[i][3],
-                    Yds_per_Att: passingStats[i][4],
-                    Pass_Yds: passingStats[i][5],
-                    TD: passingStats[i][6],
-                    INT: passingStats[i][7],
-                    Rate: passingStats[i][8],
+                    team: passingStats[i][0],
+                    attempts: passingStats[i][1],
+                    completions: passingStats[i][2],
+                    completion_percentage: passingStats[i][3],
+                    pass_yards_per_attempt: passingStats[i][4],
+                    pass_yards: passingStats[i][5],
+                    touchdowns: passingStats[i][6],
+                    interceptions: passingStats[i][7],
+                    pass_rating: passingStats[i][8],
                     first: passingStats[i][9],
                     first_perc: passingStats[i][10],
-                    over_20: passingStats[i][11],
-                    over_40: passingStats[i][12],
-                    Lng: passingStats[i][13],
-                    Sck: passingStats[i][14],
-                    SckY: passingStats[i][15],
+                    passes_over_20_yards: passingStats[i][11],
+                    passes_over_40_yards: passingStats[i][12],
+                    longest_pass: passingStats[i][13],
+                    sacks: passingStats[i][14],
+                    sack_yards_lost: passingStats[i][15],
                     year: year
                 }
             })
