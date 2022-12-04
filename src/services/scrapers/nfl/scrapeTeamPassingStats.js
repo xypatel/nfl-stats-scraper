@@ -6,20 +6,13 @@ async function scrapeTeamPassingStats(year) {
     const page = await browser.newPage();
     await page.goto(nflUrl);
 
-    const passingStatsHeaders = await page.$$eval('th', columns => {
-        return Array.from(columns, column => column.innerText);
-    });
-
     const passingStats = await page.$$eval('tr', rows => {
         return Array.from(rows, row => {
             const columns = row.querySelectorAll('td');
             return Array.from(columns, column => column.innerText);
         });
     });
-
-    passingStats[0] = passingStatsHeaders;
-    console.log(passingStats);
-    
+    console.log(year + ' Passing Stats Scraped');
     browser.close();
     return passingStats;
 }
