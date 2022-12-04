@@ -1,5 +1,5 @@
 const prismaClient = require('@prisma/client');
-const { scrapeTeamPassingStats } = require('../scrapers/nfl/scrapeTeamPassingStats');
+const { scrapeTeamPassingStats } = require('../scrapers/scrapeTeamPassingStats');
 
 const prisma = new prismaClient.PrismaClient();
 async function getPassingStats() {
