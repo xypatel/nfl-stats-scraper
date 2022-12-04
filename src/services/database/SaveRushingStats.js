@@ -4,7 +4,7 @@ const { scrapeTeamRushingStats } = require('../scrapers/ScrapeTeamRushingStats')
 const prisma = new prismaClient.PrismaClient();
 
 async function putYearRushingStats(year) {
-    rushingStats = await scrapeTeamRushingStats(year);
+    let rushingStats = await scrapeTeamRushingStats(year);
     for (let i = 1; i < rushingStats.length; i++) {
         await prisma.rushing_stats.create({
             data: {

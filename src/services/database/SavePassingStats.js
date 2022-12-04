@@ -4,7 +4,7 @@ const { scrapeTeamPassingStats } = require('../scrapers/ScrapeTeamPassingStats')
 const prisma = new prismaClient.PrismaClient();
 
 async function putYearPassingStats(year) {
-    passingStats = await scrapeTeamPassingStats(year);
+    let passingStats = await scrapeTeamPassingStats(year);
     for (let i = 1; i < passingStats.length; i++) {
         await prisma.passing_stats.create({
             data: {
