@@ -1,16 +1,9 @@
 const prismaClient = require('@prisma/client');
-const { scrapeTeamPassingStats } = require('../scrapers/ScrapeTeamPassingStats');
+const { scrapeTeamPassingStats } = require('../services/scrapers/ScrapeTeamPassingStats');
 
 const prisma = new prismaClient.PrismaClient();
-async function getPassingStats() {
-    const allPassingStats = await prisma.passing_stats.findMany({
-        where: { year: 1970 },
-      });
-    console.log("Prisma find many from Postgres DB");
-    console.log(allPassingStats);
-}
 
-async function putPassingStats() {
+async function putAllYearPassingStats() {
     for (let year = 1970; year <= 2022; year++) {
         passingStats = await scrapeTeamPassingStats(year);
         for (let i = 1; i < passingStats.length; i++) {
@@ -37,11 +30,12 @@ async function putPassingStats() {
             })
             console.log(year + ' ' + passingStats[i][0] + ' Passing Stats Saved to DB');
         }
+        console.log('All Passing Stats from ' + year + ' Saved to DB');
     }
 }
 
-async function runQuery() {
-    putPassingStats()
+async function saveAllPassingStatsFrom1970() {
+    putAllYearPassingStats()
         .then(async () => {
             await prisma.$disconnect()
         })
@@ -52,4 +46,4 @@ async function runQuery() {
         })
 }
 
-module.exports = { runQuery };
+module.exports = { saveAllPassingStatsFrom1970 };
