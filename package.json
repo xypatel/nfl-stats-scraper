@@ -20,7 +20,7 @@
   "dependencies": {
     "@prisma/client": "^4.7.1",
     "dotenv": "^16.0.3",
-    "puppeteer": "^19.3.0"
+    "puppeteer": "^19.7.2"
   },
   "devDependencies": {
     "prisma": "^4.7.1"
